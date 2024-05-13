@@ -6,6 +6,26 @@ from typing_extensions import Annotated
 app = typer.Typer(no_args_is_help=True)
 
 
+class CoinORExample(str, enum.Enum):
+    simple = "simple"
+
+
+@app.command(no_args_is_help=True)
+def coinor(
+    example: Annotated[
+        CoinORExample, typer.Argument(help="The COIN-OR example to run")
+    ],
+) -> None:
+    """Run the COIN-OR example EXAMPLE."""
+    from components.coinor import simple
+
+    match example:
+        case CoinORExample.simple:
+            simple.run_example()
+        case _:
+            raise ValueError(f"Unknown COIN-OR example {example}")
+
+
 class CplexExample(str, enum.Enum):
     twt1 = "twt1"
 
