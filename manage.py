@@ -48,6 +48,9 @@ def cplex(
 
 
 class GurobiExample(str, enum.Enum):
+    golomb_ruler7 = "golomb_ruler7"
+    golomb_ruler8 = "golomb_ruler8"
+    golomb_ruler9 = "golomb_ruler9"
     simple = "simple"
     twt1 = "twt1"
 
@@ -57,9 +60,15 @@ def gurobi(
     example: Annotated[GurobiExample, typer.Argument(help="The Gurobi example to run")],
 ) -> None:
     """Run Gurobi example EXAMPLE."""
-    from components.gurobi import simple, twt1
+    from components.gurobi import golomb_ruler, simple, twt1
 
     match example:
+        case GurobiExample.golomb_ruler7:
+            golomb_ruler.run_example(L=25, n=7)
+        case GurobiExample.golomb_ruler8:
+            golomb_ruler.run_example(L=34, n=8)
+        case GurobiExample.golomb_ruler9:
+            golomb_ruler.run_example(L=44, n=9)
         case GurobiExample.simple:
             simple.run_example()
         case GurobiExample.twt1:
