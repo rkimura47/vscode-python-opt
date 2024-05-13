@@ -4,10 +4,9 @@ import xpress as xp
 def run_example():
     with xp.problem() as model:
         # Create variables
-        x = xp.var(vartype=xp.binary, name="x")
-        y = xp.var(vartype=xp.binary, name="y")
-        z = xp.var(vartype=xp.binary, name="z")
-        model.addVariable(x, y, z)
+        x = model.addVariable(vartype=xp.binary, name="x")
+        y = model.addVariable(vartype=xp.binary, name="y")
+        z = model.addVariable(vartype=xp.binary, name="z")
 
         # Add constraints
         model.addConstraint(x + 2 * y + 3 * z <= 4)
