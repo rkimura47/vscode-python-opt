@@ -45,5 +45,23 @@ def gurobi(
             raise ValueError(f"Unknown Gurobi example {example}")
 
 
+class XpressExample(str, enum.Enum):
+    simple = "simple"
+
+
+@app.command(no_args_is_help=True)
+def xpress(
+    example: Annotated[XpressExample, typer.Argument(help="The Xpress example to run")],
+) -> None:
+    """Run Xpress example EXAMPLE."""
+    from components.xpress import simple
+
+    match example:
+        case XpressExample.simple:
+            simple.run_example()
+        case _:
+            raise ValueError(f"Unknown Xpress example {example}")
+
+
 if __name__ == "__main__":
     app()
