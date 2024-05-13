@@ -39,7 +39,8 @@ def run_example(L: int, n: int):
 
         model.optimize()
 
-        print("## Golomb Ruler Problem ##")
-        print(f"L = {L}, n = {n}")
-        used_marks = [idx for idx, var in x.items() if var.x > 0]
-        print(f"used_marks = {used_marks}")
+        if model.SolCount > 0:
+            print("## Golomb Ruler Problem ##")
+            print(f"L = {L}, n = {n}")
+            used_marks = [idx for idx, var in x.items() if var.x > 0]
+            print(f"used_marks = {used_marks}")
