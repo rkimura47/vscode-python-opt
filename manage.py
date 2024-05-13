@@ -45,6 +45,24 @@ def gurobi(
             raise ValueError(f"Unknown Gurobi example {example}")
 
 
+class ScipExample(str, enum.Enum):
+    simple = "simple"
+
+
+@app.command(no_args_is_help=True)
+def scip(
+    example: Annotated[ScipExample, typer.Argument(help="The SCIP example to run")],
+) -> None:
+    """Run SCIP example EXAMPLE."""
+    from components.scip import simple
+
+    match example:
+        case ScipExample.simple:
+            simple.run_example()
+        case _:
+            raise ValueError(f"Unknown SCIP example {example}")
+
+
 class XpressExample(str, enum.Enum):
     simple = "simple"
 
