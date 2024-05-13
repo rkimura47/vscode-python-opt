@@ -45,6 +45,26 @@ def gurobi(
             raise ValueError(f"Unknown Gurobi example {example}")
 
 
+class ORToolsExample(str, enum.Enum):
+    simple = "simple"
+
+
+@app.command(no_args_is_help=True)
+def ortools(
+    example: Annotated[
+        ORToolsExample, typer.Argument(help="The OR-Tools example to run")
+    ],
+) -> None:
+    """Run OR-Tools example EXAMPLE."""
+    from components.ortools import simple
+
+    match example:
+        case ORToolsExample.simple:
+            simple.run_example()
+        case _:
+            raise ValueError(f"Unknown OR-Tools example {example}")
+
+
 class ScipExample(str, enum.Enum):
     simple = "simple"
 
