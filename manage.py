@@ -27,6 +27,7 @@ def coinor(
 
 
 class CplexExample(str, enum.Enum):
+    simple = "simple"
     twt1 = "twt1"
 
 
@@ -35,9 +36,11 @@ def cplex(
     example: Annotated[CplexExample, typer.Argument(help="The CPLEX example to run")],
 ) -> None:
     """Run the CPLEX example EXAMPLE."""
-    from components.cplex import twt1
+    from components.cplex import simple, twt1
 
     match example:
+        case CplexExample.simple:
+            simple.run_example()
         case CplexExample.twt1:
             twt1.run_example()
         case _:
