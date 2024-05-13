@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  #
+  # base: defines the build and shared configurations
+  #
+  base: &base
+    image: "${COMPOSE_PROJECT_NAME}-base"
+    build:
+      context: .
+      dockerfile: "docker/Dockerfile"
+    stdin_open: true
+    tty: true
+    volumes:
+      - ".:/workspaces/${COMPOSE_PROJECT_NAME}"
+    working_dir: "/workspaces/${COMPOSE_PROJECT_NAME}"
+
+  # devbox: provide commandline access to the container
+  devbox:
+    <<: *base
+    user: vscode
+    command: [ "/bin/bash" ]
