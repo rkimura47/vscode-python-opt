@@ -1,0 +1,5 @@
+# Force every file to use LF line endings
+# except for Windows batch files that require CRLF.
+* text=auto eol=lf
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
