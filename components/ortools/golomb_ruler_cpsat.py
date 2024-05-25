@@ -43,7 +43,9 @@ def run_example(L: int, n: int):
     solver.parameters.log_search_progress = True
     status = solver.solve(model)
 
-    if status in (cp_model.OPTIMAL, cp_model.FEASIBLE):
+    # mypy with strict equality enabled complains here because cp_model.CpSolver.solve(...) returns a CpSolverStatus,
+    # but cp_model.OPTIMAL is a CpSolverStatus.ValueType.
+    if status in (cp_model.OPTIMAL, cp_model.FEASIBLE):  # type: ignore[comparison-overlap]
         print("## Golomb Ruler Problem ##")
         print(f"L = {L}, n = {n}")
         used_marks = [solver.value(x_var) for x_var in x]
