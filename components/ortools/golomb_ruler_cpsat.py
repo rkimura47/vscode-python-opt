@@ -3,7 +3,7 @@ from ortools.sat.python import cp_model
 def run_example(L: int, n: int):
     """Run Golomb ruler example using CP model.
 
-    When using CP-SAT, the MIP model and CP model seem to be comparable in performance.
+    When using CP-SAT, the CP model seems to be slightly better than the MIP model.
     This model is based on golomb_sat.py in the or-tools Python examples.
 
     Args:
