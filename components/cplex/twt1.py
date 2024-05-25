@@ -1,10 +1,18 @@
-from docplex.mp.model import Model
 import cplex._internal._constants as CPLEX_CONSTANTS
+from docplex.mp.model import Model
 
 # See "Solution Status Codes by Number in the CPLEX Callable Library (C API)" in the CPLEX documentation
 # https://www.ibm.com/docs/en/icos/22.1.1?topic=micclcarm-solution-status-codes-by-number-in-cplex-callable-library-c-api
-StatusDict = {getattr(CPLEX_CONSTANTS, c): c for c in dir(CPLEX_CONSTANTS) if c.isupper() and (c.startswith("CPX_STAT") or c.startswith("CPXMIP"))}
-INF_OR_UNBD_STATUS = [CPLEX_CONSTANTS.CPX_STAT_INForUNBD, CPLEX_CONSTANTS.CPXMIP_INForUNBD, CPLEX_CONSTANTS.CPX_STAT_MULTIOBJ_INForUNBD]
+StatusDict = {
+    getattr(CPLEX_CONSTANTS, c): c
+    for c in dir(CPLEX_CONSTANTS)
+    if c.isupper() and (c.startswith("CPX_STAT") or c.startswith("CPXMIP"))
+}
+INF_OR_UNBD_STATUS = [
+    CPLEX_CONSTANTS.CPX_STAT_INForUNBD,
+    CPLEX_CONSTANTS.CPXMIP_INForUNBD,
+    CPLEX_CONSTANTS.CPX_STAT_MULTIOBJ_INForUNBD,
+]
 
 
 def run_example():
@@ -65,4 +73,7 @@ def run_example():
             print("Objective:\t%g" % m.objective_value)
         else:
             sdetails = m.solve_details
-            print("Optimization was stopped with status: %s (code %d)" % (sdetails.status, sdetails.status_code))
+            print(
+                "Optimization was stopped with status: %s (code %d)"
+                % (sdetails.status, sdetails.status_code)
+            )

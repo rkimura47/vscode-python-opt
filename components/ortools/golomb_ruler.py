@@ -15,13 +15,16 @@ def run_example(L: int, n: int):
     # x_i = 1 if mark i is chosen, 0 otherwise
     x = {m: model.add_binary_variable(name=f"x[{m}]") for m in marks}
     # y_ij = 1 iff x_i = 1 AND x_k = 1
-    y = {pair: model.add_binary_variable(name=f"y[{pair[0]},{pair[1]}]") for pair in mark_pairs}
+    y = {
+        pair: model.add_binary_variable(name=f"y[{pair[0]},{pair[1]}]")
+        for pair in mark_pairs
+    }
 
     # Among all possible pairs of marks measuring length k, there can be at most 1.
     for k in range(1, L):
         model.add_linear_constraint(
             mathopt.fast_sum(y[i, i + k] for i in range(L - k + 1)) <= 1,
-            name=f"UniqueLength[{k}]"
+            name=f"UniqueLength[{k}]",
         )
 
     # Enforce y_ij == x_i AND x_k
