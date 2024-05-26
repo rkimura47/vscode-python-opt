@@ -38,7 +38,7 @@ def run_example(L: int, n: int):
 
     # Either require at least n marks, or try to maximize the number of marks.
     model.addCons(scip.quicksum(x.values()) >= n, "RequireNMarks")
-    # model.setObjective(scip.quicksum(x.values()), grb.GRB.MAXIMIZE)
+    # model.setObjective(scip.quicksum(x.values()), "maximize")
 
     model.optimize()
 
