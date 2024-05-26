@@ -7,7 +7,7 @@ class XpressExample(str, enum.Enum):
     golomb7 = "golomb7"
     golomb8 = "golomb8"
     golomb9 = "golomb9"
-    golomb12 = "golomb12"
+    golomb11 = "golomb11"
     simple = "simple"
 
     def run(self) -> None:
@@ -18,8 +18,8 @@ class XpressExample(str, enum.Enum):
                 golomb_ruler.run_example(L=34, n=8)
             case XpressExample.golomb9:
                 golomb_ruler.run_example(L=44, n=9)
-            case XpressExample.golomb12:
-                golomb_ruler.run_example(L=85, n=12)
+            case XpressExample.golomb11:
+                golomb_ruler.run_example(L=72, n=11)
             case XpressExample.simple:
                 simple.run_example()
             case _:
