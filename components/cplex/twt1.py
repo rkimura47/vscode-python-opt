@@ -64,7 +64,7 @@ def run_example():
         if m.solve_details.status_code in INF_OR_UNBD_STATUS:
             # Disable primal/dual reductions to determine solve status
             m.parameters.preprocessing.reduce = False
-            m.solve()
+            solve_solution = m.solve()
 
         # Display solution
         if solve_solution:
