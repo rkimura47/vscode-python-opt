@@ -16,7 +16,7 @@ def run_example():
         model.setObjective(x + y + 2 * z, sense=xp.maximize)
 
         # Solve it!
-        model.solve()
+        model.mipoptimize()
 
         # Print solutions
         sol = model.getSolution({x: x, y: y, z: z})
