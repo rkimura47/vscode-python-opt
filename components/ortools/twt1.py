@@ -42,15 +42,22 @@ def run_example():
         )
 
     # Solve model
-    params = mathopt.SolveParameters(enable_output=True)
-    result = mathopt.solve(model, mathopt.SolverType.GSCIP, params=params)
-    if result.termination.reason == mathopt.TerminationReason.INFEASIBLE_OR_UNBOUNDED:
-        # Disable presolving to determine solve status
-        params = mathopt.SolveParameters(
-            enable_output=True,
-            gscip=GScipParameters(int_params={"presolving/maxrounds": 0}),
-        )
+    try:
+        params = mathopt.SolveParameters(enable_output=True)
         result = mathopt.solve(model, mathopt.SolverType.GSCIP, params=params)
+        if (
+            result.termination.reason
+            == mathopt.TerminationReason.INFEASIBLE_OR_UNBOUNDED
+        ):
+            # Disable presolving to determine solve status
+            params = mathopt.SolveParameters(
+                enable_output=True,
+                gscip=GScipParameters(int_params={"presolving/maxrounds": 0}),
+            )
+            result = mathopt.solve(model, mathopt.SolverType.GSCIP, params=params)
+    except RuntimeError as e:
+        print(f"RuntimeError while trying to solve:\n\t{e}")
+        return
 
     # Display solution
     if result.termination.reason == mathopt.TerminationReason.OPTIMAL:
