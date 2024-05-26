@@ -1,6 +1,6 @@
 import enum
 
-from components.ortools import golomb_ruler, golomb_ruler_cpsat, simple
+from components.ortools import golomb_ruler, golomb_ruler_cpsat, simple, twt1
 
 
 class ORToolsExample(str, enum.Enum):
@@ -11,6 +11,7 @@ class ORToolsExample(str, enum.Enum):
     golomb10_cpsat = "golomb10_cpsat"
     golomb11_cpsat = "golomb11_cpsat"
     simple = "simple"
+    twt1 = "twt1"
 
     def run(self) -> None:
         match self:
@@ -28,5 +29,7 @@ class ORToolsExample(str, enum.Enum):
                 golomb_ruler_cpsat.run_example(L=72, n=11)
             case ORToolsExample.simple:
                 simple.run_example()
+            case ORToolsExample.twt1:
+                twt1.run_example()
             case _:
                 raise ValueError(f"Unknown OR-Tools example {self}")
