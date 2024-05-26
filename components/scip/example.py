@@ -1,6 +1,6 @@
 import enum
 
-from components.scip import golomb_ruler, simple
+from components.scip import golomb_ruler, simple, twt1
 
 
 class ScipExample(str, enum.Enum):
@@ -8,6 +8,7 @@ class ScipExample(str, enum.Enum):
     golomb8 = "golomb8"
     golomb9 = "golomb9"
     simple = "simple"
+    twt1 = "twt1"
 
     def run(self) -> None:
         match self:
@@ -19,5 +20,7 @@ class ScipExample(str, enum.Enum):
                 golomb_ruler.run_example(L=44, n=9)
             case ScipExample.simple:
                 simple.run_example()
+            case ScipExample.twt1:
+                twt1.run_example()
             case _:
                 raise ValueError(f"Unknown SCIP example {self}")
