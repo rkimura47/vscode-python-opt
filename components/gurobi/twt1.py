@@ -5,7 +5,7 @@ StatusDict = {getattr(GRB.Status, s): s for s in dir(GRB.Status) if s.isupper()}
 
 def run_example():
     # TWT Problem Data
-    jobs = tuple([i + 1 for i in range(4)])
+    jobs = tuple(i + 1 for i in range(4))
     jobPairs = [(i, j) for i in jobs for j in jobs if i < j]
     weight = dict(zip(jobs, (4, 5, 3, 5)))
     duration = dict(zip(jobs, (12, 8, 15, 9)))
@@ -23,20 +23,20 @@ def run_example():
         tardiness = m.addVars(jobs, name="tardiness")
 
         # Set objective function
-        m.setObjective(quicksum([weight[j] * tardiness[j] for j in jobs]), GRB.MINIMIZE)
+        m.setObjective(quicksum(weight[j] * tardiness[j] for j in jobs), GRB.MINIMIZE)
 
         # Add constraints
         m.addConstrs(
             (
-                startTime[j] >= startTime[i] + duration[i] - M * (1 - x[(i, j)])
-                for (i, j) in jobPairs
+                startTime[j] >= startTime[i] + duration[i] - M * (1 - x[i, j])
+                for i, j in jobPairs
             ),
             "NoOverlap1",
         )
         m.addConstrs(
             (
-                startTime[i] >= startTime[j] + duration[j] - M * x[(i, j)]
-                for (i, j) in jobPairs
+                startTime[i] >= startTime[j] + duration[j] - M * x[i, j]
+                for i, j in jobPairs
             ),
             "NoOverlap2",
         )

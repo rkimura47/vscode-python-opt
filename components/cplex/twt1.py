@@ -17,7 +17,7 @@ INF_OR_UNBD_STATUS = [
 
 def run_example():
     # TWT Problem Data
-    jobs = tuple([i + 1 for i in range(4)])
+    jobs = tuple(i + 1 for i in range(4))
     jobPairs = [(i, j) for i in jobs for j in jobs if i < j]
     weight = dict(zip(jobs, (4, 5, 3, 5)))
     duration = dict(zip(jobs, (12, 8, 15, 9)))
@@ -38,17 +38,17 @@ def run_example():
         # Add constraints
         m.add_constraints(
             (
-                startTime[j] >= startTime[i] + duration[i] - M * (1 - x[(i, j)]),
+                startTime[j] >= startTime[i] + duration[i] - M * (1 - x[i, j]),
                 "NoOverlap1_%d_%d" % (i, j),
             )
-            for (i, j) in jobPairs
+            for i, j in jobPairs
         )
         m.add_constraints(
             (
-                startTime[i] >= startTime[j] + duration[j] - M * x[(i, j)],
+                startTime[i] >= startTime[j] + duration[j] - M * x[i, j],
                 "NoOverlap2_%d_%d" % (i, j),
             )
-            for (i, j) in jobPairs
+            for i, j in jobPairs
         )
         m.add_constraints(
             (
