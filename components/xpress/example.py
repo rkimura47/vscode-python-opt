@@ -1,6 +1,6 @@
 import enum
 
-from components.xpress import golomb_ruler, simple
+from components.xpress import golomb_ruler, simple, twt1
 
 
 class XpressExample(str, enum.Enum):
@@ -9,6 +9,7 @@ class XpressExample(str, enum.Enum):
     golomb9 = "golomb9"
     golomb11 = "golomb11"
     simple = "simple"
+    twt1 = "twt1"
 
     def run(self) -> None:
         match self:
@@ -22,5 +23,7 @@ class XpressExample(str, enum.Enum):
                 golomb_ruler.run_example(L=72, n=11)
             case XpressExample.simple:
                 simple.run_example()
+            case XpressExample.twt1:
+                twt1.run_example()
             case _:
                 raise ValueError(f"Unknown Xpress example {self}")
