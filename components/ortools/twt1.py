@@ -45,8 +45,9 @@ def run_example():
     # Solve model
     try:
         params = mathopt.SolveParameters(enable_output=True)
-        result = mathopt.solve(model, mathopt.SolverType.HIGHS, params=params)
-        # result = mathopt.solve(model, mathopt.SolverType.GSCIP, params=params)
+        solver_type = mathopt.SolverType.HIGHS
+        # solver_type = mathopt.SolverType.GSCIP
+        result = mathopt.solve(model, solver_type, params=params)
         if (
             result.termination.reason
             == mathopt.TerminationReason.INFEASIBLE_OR_UNBOUNDED
@@ -57,7 +58,7 @@ def run_example():
                 gscip=GScipParameters(int_params={"presolving/maxrounds": 0}),
                 highs=HighsOptionsProto(string_options={"presolve": "off"}),
             )
-            result = mathopt.solve(model, mathopt.SolverType.GSCIP, params=params)
+            result = mathopt.solve(model, solver_type, params=params)
     except RuntimeError as e:
         print(f"RuntimeError while trying to solve:\n\t{e}")
         return
