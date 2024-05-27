@@ -35,7 +35,7 @@ def run_example(L: int, n: int):
 
     # Either require at least n marks, or try to maximize the number of marks.
     model.add_constr(mip.xsum(x.values()) >= n, name="RequireNMarks")
-    # model.maximize(mip.xsum(x.values()))
+    # model.objective = mip.maximize(mip.xsum(x.values()))
 
     status = model.optimize()
 
