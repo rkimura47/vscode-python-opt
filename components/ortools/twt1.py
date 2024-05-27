@@ -1,5 +1,6 @@
 from ortools.gscip.gscip_pb2 import GScipParameters
 from ortools.math_opt.python import mathopt
+from ortools.math_opt.solvers.highs_pb2 import HighsOptionsProto
 
 
 def run_example():
@@ -44,7 +45,8 @@ def run_example():
     # Solve model
     try:
         params = mathopt.SolveParameters(enable_output=True)
-        result = mathopt.solve(model, mathopt.SolverType.GSCIP, params=params)
+        result = mathopt.solve(model, mathopt.SolverType.HIGHS, params=params)
+        # result = mathopt.solve(model, mathopt.SolverType.GSCIP, params=params)
         if (
             result.termination.reason
             == mathopt.TerminationReason.INFEASIBLE_OR_UNBOUNDED
@@ -53,6 +55,7 @@ def run_example():
             params = mathopt.SolveParameters(
                 enable_output=True,
                 gscip=GScipParameters(int_params={"presolving/maxrounds": 0}),
+                highs=HighsOptionsProto(string_options={"presolve": "off"}),
             )
             result = mathopt.solve(model, mathopt.SolverType.GSCIP, params=params)
     except RuntimeError as e:
