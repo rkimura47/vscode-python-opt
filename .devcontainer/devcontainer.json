@@ -19,12 +19,10 @@
 		// Configure properties specific to VS Code.
 		"vscode": {
 			"settings": {
-				"[python]": {
-					"editor.defaultFormatter": "charliermarsh.ruff",
-					"editor.formatOnSave": true,
-					"editor.codeActionsOnSave": {
-						"source.organizeImports": "explicit"
-					}
+				"editor.defaultFormatter": "charliermarsh.ruff",
+				"editor.formatOnSave": true,
+				"editor.codeActionsOnSave": {
+					"source.organizeImports": "explicit"
 				}
 			},
 			"extensions": [
