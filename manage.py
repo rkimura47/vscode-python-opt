@@ -4,6 +4,7 @@ from typing_extensions import Annotated
 from components.coinor.example import CoinORExample
 from components.cplex.example import CplexExample
 from components.gurobi.example import GurobiExample
+from components.highs.example import HighsExample
 from components.ortools.example import ORToolsExample
 from components.scip.example import ScipExample
 from components.xpress.example import XpressExample
@@ -39,6 +40,15 @@ def gurobi(
 ) -> None:
     """Run Gurobi example EXAMPLE."""
     gurobi_example.run()
+
+
+@app.command(no_args_is_help=True)
+def highs(
+    highs_example: Annotated[
+        HighsExample, typer.Argument(help="The HiGHS example to run")]
+) -> None:
+    """Run HiGHS example EXAMPLE."""
+    highs_example.run()
 
 
 @app.command(no_args_is_help=True)
