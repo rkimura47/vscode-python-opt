@@ -1,4 +1,4 @@
-# See here for image contents: https://github.com/devcontainers/images/blob/v0.3.36/src/python/.devcontainer/Dockerfile
+# See here for image contents: https://github.com/devcontainers/images/blob/main/src/python/.devcontainer/Dockerfile
 ARG VARIANT="3.11"
 FROM mcr.microsoft.com/devcontainers/python:1-${VARIANT}
 
