@@ -20,5 +20,5 @@ def run_example():
 
         # Print solutions
         sol = model.getSolution({x: x, y: y, z: z})
-        print(f"Optimal objective value: {model.getObjVal()}")
+        print(f"Optimal objective value: {model.attributes.objval}")
         print(f"Solution values: x={sol[x]}, y={sol[y]}, z={sol[z]}")

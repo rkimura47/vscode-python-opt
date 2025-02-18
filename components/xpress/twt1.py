@@ -55,7 +55,7 @@ def run_example():
         solution = m.getSolution({v: v for v in m.getVariable()})
         for var, val in solution.items():
             print("%s:\t%g" % (var.name, val))
-        print("Objective:\t%g" % m.getObjVal())
+        print("Objective:\t%g" % m.attributes.objval)
     else:
         mipstatus = m.attributes.mipstatus
         print(
