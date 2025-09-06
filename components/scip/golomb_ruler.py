@@ -20,13 +20,13 @@ def run_example(L: int, n: int):
         for pair in mark_pairs
     }
 
-    model.addConss(
-        (
-            scip.quicksum(y[i, i + k] for i in range(L - k + 1)) <= 1
-            for k in range(1, L)
-        ),
-        "UniqueLength",
-    )
+    for k in range(1, L):
+        model.addConsKnapsack(
+            vars=[y[i, i + k] for i in range(L - k + 1)],
+            weights=[1 for _ in range(L - k + 1)],
+            capacity=1,
+            name=f"UniqueLength[{k}]",
+        )
 
     # Enforce y_ij == x_i AND x_k
     # For this problem we can get away with only enforcing
