@@ -39,6 +39,10 @@ def run_example(L: int, n: int):
     if n > 2:
         model.add(y[n - 2, n - 1] > y[0, 1])
 
+    # For smaller instances, using a very simple search strategy can end up being faster.
+    # model.add_decision_strategy(x, cp_model.CHOOSE_LOWEST_MIN, cp_model.SELECT_LOWER_HALF)
+    # model.add_decision_strategy(list(y.values()), cp_model.CHOOSE_FIRST, cp_model.SELECT_MIN_VALUE)
+
     solver = cp_model.CpSolver()
     solver.parameters.log_search_progress = True
     status = solver.solve(model)
