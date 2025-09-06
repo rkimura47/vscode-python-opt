@@ -1,4 +1,5 @@
 import xpress as xp
+from xpress.enums import MIPStatus
 
 
 def add_and_pair_constraints_to_model(
@@ -66,7 +67,7 @@ def run_example(L: int, n: int):
 
         model.mipoptimize()
 
-        if model.attributes.mipstatus in (xp.mip_optimal, xp.mip_solution):
+        if model.attributes.mipstatus in (MIPStatus.OPTIMAL, MIPStatus.SOLUTION):
             print("## Golomb Ruler Problem ##")
             print(f"L = {L}, n = {n}")
             sol = model.getSolution(x)

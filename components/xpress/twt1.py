@@ -1,4 +1,5 @@
 import xpress as xp
+from xpress.enums import MIPStatus
 
 MipStatusDict = {getattr(xp, s): s for s in dir(xp) if s.startswith("mip")}
 
@@ -51,7 +52,7 @@ def run_example():
     m.mipoptimize()
 
     # Display solution
-    if m.attributes.mipstatus == xp.mip_optimal:
+    if m.attributes.mipstatus == MIPStatus.OPTIMAL:
         solution = m.getSolution({v: v for v in m.getVariable()})
         for var, val in solution.items():
             print("%s:\t%g" % (var.name, val))
