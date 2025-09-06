@@ -13,5 +13,6 @@ dependencies:
     - highspy>=1.11,<1.12
     - mip>=1.15,<1.16
     - ortools>=9.14,<9.15
+    - pychoco>=0.2.3,<0.2.4
     - PySCIPOpt>=5.6,<5.7
     - xpress>=9.7,<9.8

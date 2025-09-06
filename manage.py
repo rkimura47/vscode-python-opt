@@ -1,6 +1,7 @@
 import typer
 from typing_extensions import Annotated
 
+from components.choco.example import ChocoExample
 from components.coinor.example import CoinORExample
 from components.cplex.example import CplexExample
 from components.gurobi.example import GurobiExample
@@ -10,6 +11,16 @@ from components.scip.example import ScipExample
 from components.xpress.example import XpressExample
 
 app = typer.Typer(no_args_is_help=True)
+
+
+@app.command(no_args_is_help=True)
+def choco(
+    choco_example: Annotated[
+        ChocoExample, typer.Argument(help="The Choco example to run")
+    ],
+) -> None:
+    """Run the Choco example EXAMPLE."""
+    choco_example.run()
 
 
 @app.command(no_args_is_help=True)
