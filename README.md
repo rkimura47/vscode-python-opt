@@ -1,6 +1,9 @@
 # vscode-python-opt
 Simple examples of running discrete optimization solvers in Python
 
+## Quick start
+If needed, [install uv](https://docs.astral.sh/uv/getting-started/installation/). You can then run the examples with `uv run manage.py`.
+
 ## Environment Setup
 
 ### Dev Container (VS Code, VSCodium)
@@ -47,6 +50,8 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
+
+Alternatively, if you are using [uv](https://docs.astral.sh/uv/), you can run `uv sync` to update the virtual environment, and/or run the examples with `uv run manage.py`.
 
 ## Running the examples
 To run the examples, you can use the `manage.py` script.
