@@ -18,3 +18,8 @@ description = "Simple examples of running discrete optimization solvers in Pytho
 readme = "README.md"
 license = "Apache-2.0"
 license-files = ["LICEN[CS]E.*"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.17.1",
+]
