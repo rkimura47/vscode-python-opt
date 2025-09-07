@@ -78,6 +78,7 @@ When updating package versions, remember to update:
  1. pyproject.toml
  2. requirements.txt
  3. environment.yml
+ 4. uv.lock
 
 When updating Python version, remember to update:
  1. pyproject.toml
@@ -85,3 +86,4 @@ When updating Python version, remember to update:
  3. .python-version
  4. Dockerfile
  5. devcontainer.json
+ 6. uv.lock
