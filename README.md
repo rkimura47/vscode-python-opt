@@ -64,3 +64,19 @@ python manage.py
 # Show available examples for the solver Gurobi
 python manage.py gurobi
 ```
+
+## Development
+
+### Updating versions
+
+When updating package versions, remember to update:
+ 1. pyproject.toml
+ 2. requirements.txt
+ 3. environment.yml
+
+When updating Python version, remember to update:
+ 1. pyproject.toml
+ 2. environment.yml
+ 3. .python-version
+ 4. Dockerfile
+ 5. devcontainer.json
