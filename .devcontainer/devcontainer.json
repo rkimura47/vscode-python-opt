@@ -28,6 +28,7 @@
 				}
 			},
 			"extensions": [
+				"ms-python.python",
 				"charliermarsh.ruff",
 				"detachhead.basedpyright",
 				"phil294.git-log--graph"
