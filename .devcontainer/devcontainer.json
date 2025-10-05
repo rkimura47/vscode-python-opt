@@ -29,8 +29,8 @@
 			},
 			"extensions": [
 				"charliermarsh.ruff",
-				"ms-python.mypy-type-checker",
-				"mhutchie.git-graph"
+				"detachhead.basedpyright",
+				"phil294.git-log--graph"
 			]
 		}
 	}
