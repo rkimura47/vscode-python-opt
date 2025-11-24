@@ -3,16 +3,16 @@ name = "vscode-python-opt"
 version = "0.1.0"
 requires-python = ">= 3.11"
 dependencies = [
-    "cplex>=22.1.2,<22.1.3",
-    "docplex>=2.30,<2.31",
-    "gurobipy>=13.0,<13.1",
-    "highspy>=1.12,<1.13",
-    "mip>=1.15,<1.16",
-    "ortools>=9.14,<9.15",
-    "pychoco>=0.2.4,<0.2.5",
-    "pyscipopt>=5.6,<5.7",
-    "typer>=0.20,<0.21",
-    "xpress>=9.8,<9.9",
+    "cplex>=22.1.2",
+    "docplex>=2.30",
+    "gurobipy>=13.0",
+    "highspy>=1.12",
+    "mip>=1.15",
+    "ortools>=9.14",
+    "pychoco>=0.2.4",
+    "pyscipopt>=5.6",
+    "typer>=0.20",
+    "xpress>=9.8",
 ]
 description = "Simple examples of running discrete optimization solvers in Python"
 readme = "README.md"
