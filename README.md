@@ -25,16 +25,16 @@ docker compose build devbox
 ```
 
 ### Virtual environment (conda)
-If needed, install a conda environment manager (recommend a local user installation of either [miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install) or [micromamba](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html), but [mamba](https://mamba.readthedocs.io/en/latest/user_guide/mamba.html), [conda](https://docs.conda.io/en/latest/), or the [Anaconda Distribution](https://www.anaconda.com/docs/getting-started/anaconda/install) will also work).
+If needed, install a conda environment manager (recommend a local user installation of either [miniforge](https://github.com/conda-forge/miniforge) or [micromamba](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html); but [mamba](https://mamba.readthedocs.io/en/latest/user_guide/mamba.html), [conda](https://docs.conda.io/en/latest/), or the [Anaconda Distribution](https://www.anaconda.com/docs/getting-started/anaconda/install) will also work).
 
 Then, you can build and activate a [conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) / [mamba environment](https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#id2) with all the necessary packages by running the following commands in the repo's root directory:
 ```
 # Replace `conda` with `micromamba` or `mamba` as needed.
-conda env create -n vscode-python-opt -f environment.yml
+conda create -n vscode-python-opt -f environment.yml
 conda activate vscode-python-opt
 ```
 
-### Virtual environment (Python)
+### Virtual environment (python, py, uv)
 If needed, [install and setup a Python environment for your platform](https://docs.python.org/3/using/index.html).
 
 Then, you can build and activate a [Python virtual environment](https://docs.python.org/3/library/venv.html) with all the necessary packages by running the following commands in the repo's root directory:
