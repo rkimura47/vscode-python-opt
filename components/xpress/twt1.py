@@ -49,7 +49,7 @@ def run_example():
     )
 
     # Solve model
-    m.mipoptimize()
+    m.mipOptimize()
 
     # Display solution
     if m.attributes.mipstatus == MIPStatus.OPTIMAL:

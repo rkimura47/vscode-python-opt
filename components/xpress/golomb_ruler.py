@@ -65,7 +65,7 @@ def run_example(L: int, n: int):
         )
         # model.setObjective(xp.Sum(iter(x.values())), sense=xp.maximize)
 
-        model.mipoptimize()
+        model.mipOptimize()
 
         if model.attributes.mipstatus in (MIPStatus.OPTIMAL, MIPStatus.SOLUTION):
             print("## Golomb Ruler Problem ##")
