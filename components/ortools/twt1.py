@@ -1,4 +1,4 @@
-from ortools.gscip.gscip_pb2 import GScipParameters
+from ortools.math_opt.solvers.gscip.gscip_pb2 import GScipParameters
 from ortools.math_opt.python import mathopt
 from ortools.math_opt.solvers.highs_pb2 import HighsOptionsProto
 
