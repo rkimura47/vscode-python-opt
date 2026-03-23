@@ -6,15 +6,15 @@ dependencies:
   - python=3.11
   - pip
   - pip:
-    - typer>=0.21.1
-    - cplex>=22.1.2.0
-    - docplex>=2.31.254
+    - typer>=0.24.1
+    - cplex>=22.1.2.1
+    - docplex>=2.32.262
     - gurobipy>=13.0.1
-    - highspy>=1.13.0
-    - mip>=1.15.0
+    - highspy>=1.13.1
+    - mip>=1.17.5
     - ortools>=9.15.6755
     - pychoco>=0.2.6
     - PySCIPOpt>=6.1.0
-    - xpress>=9.8.0
+    - xpress>=9.8.1
     # dev dependencies
-    - basedpyright>=1.37.4
+    - basedpyright>=1.38.3
