@@ -37,18 +37,6 @@ wheels = [
 ]
 
 [[package]]
-name = "cbcbox"
-version = "2.927"
-source = { registry = "https://pypi.org/simple" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/56/31/607c84f7c97b2a47956c59f5c40015fdb32656a9b9de51f36f6707a2e93b/cbcbox-2.927-py3-none-macosx_15_0_arm64.whl", hash = "sha256:e3bfddd92d2ceb6aa67b926040e1b91f6f8e809416d726b91c5c85e2258018bf", size = 30183511, upload-time = "2026-03-22T15:34:03.59Z" },
-    { url = "https://files.pythonhosted.org/packages/33/fd/aa9a4995a69342ae92bf2f3b2d4358d79266a45c97f7f4d63068016e7a7b/cbcbox-2.927-py3-none-macosx_15_0_x86_64.whl", hash = "sha256:5360df5baee2bd86409d51451aba9ea44ee28958d436b3c790d3d98318790f1f", size = 60036241, upload-time = "2026-03-22T15:34:06.95Z" },
-    { url = "https://files.pythonhosted.org/packages/01/0f/2ebbbdc0646982496588069202abea55c1f679497aac169e17b8c700e97d/cbcbox-2.927-py3-none-manylinux2014_aarch64.whl", hash = "sha256:fbdebc1110e0540097e295913f96bed95f13b6be72d111c8f94fe03b15e1306f", size = 36023629, upload-time = "2026-03-22T15:34:10.024Z" },
-    { url = "https://files.pythonhosted.org/packages/87/62/7b5232cb1e9a669e8051cfae51cf17b58e7bd079ba817c54d09a0f2a3541/cbcbox-2.927-py3-none-manylinux2014_x86_64.whl", hash = "sha256:2e0b4516fd39d2dbeffb75fa4b01cde8d783e4f601edd305ffc0b3a254e7fe70", size = 72889750, upload-time = "2026-03-22T15:34:13.107Z" },
-    { url = "https://files.pythonhosted.org/packages/30/15/6c1b316cf9a1dd46042e29eedc61cea8793e23afe7151d6b60763e86b841/cbcbox-2.927-py3-none-win_amd64.whl", hash = "sha256:b9f1ad61a229cae47777e935f6257266d650c7cd589d571d5a2acc860c2ebe91", size = 57536027, upload-time = "2026-03-22T15:34:17.038Z" },
-]
-
-[[package]]
 name = "cffi"
 version = "1.15.1"
 source = { registry = "https://pypi.org/simple" }
@@ -251,15 +239,14 @@ wheels = [
 
 [[package]]
 name = "mip"
-version = "1.17.5"
+version = "1.15.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "cbcbox" },
     { name = "cffi" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c7/b7/ee17e50f973cca7cf17f8ea34673cbf46c2150fd2703de57915b50469bb4/mip-1.17.5.tar.gz", hash = "sha256:9e1c5bb79ee5a9c41fbbfd6f52254ca74f7057a59d447ecbe5485d5bc42703d8", size = 9443652, upload-time = "2026-03-22T16:55:25.818Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/30/84/41ebb2db20fbc199768c317ee8238d50b55fd6ffaa4c17e2cb94f0d03152/mip-1.15.0.tar.gz", hash = "sha256:7f6f0381cfe2c52c1b8640203da2cb56974b26e23950ddfb1a76b37d916f197e", size = 24569566, upload-time = "2023-01-04T13:51:46.934Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e2/fa/7593e4d1132f8285ad0b1790fe8c73f1bf2555a940be286af72a54eb63c4/mip-1.17.5-py3-none-any.whl", hash = "sha256:f65d03d5d3d459ee05037d5a151ab46cb9f994a348bfbb01861e294821519b75", size = 88214, upload-time = "2026-03-22T16:55:23.674Z" },
+    { url = "https://files.pythonhosted.org/packages/49/c9/d4ba71d5d73cf57596b8637ab20eda547c6cde296860f6b6192568809e70/mip-1.15.0-py3-none-any.whl", hash = "sha256:9a48c993ddc9a48591a59e4a1221b400eb1e35fc087052085774360330bb9226", size = 15269834, upload-time = "2023-01-04T13:51:34.596Z" },
 ]
 
 [[package]]
@@ -652,7 +639,7 @@ requires-dist = [
     { name = "docplex", specifier = ">=2.32.262" },
     { name = "gurobipy", specifier = ">=13.0.1" },
     { name = "highspy", specifier = ">=1.13.1" },
-    { name = "mip", specifier = ">=1.17.5" },
+    { name = "mip", specifier = ">=1.15.0,<1.16" },
     { name = "ortools", specifier = ">=9.15.6755" },
     { name = "pychoco", specifier = ">=0.2.6" },
     { name = "pyscipopt", specifier = ">=6.1.0" },
