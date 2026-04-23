@@ -70,6 +70,19 @@ python manage.py
 python manage.py gurobi
 ```
 
+### Workarounds
+#### Python-MIP (COIN-OR) is incompatible with OR-Tools - _2026-04-23_
+```
+An error occurred while loading the CBC library: cannot load library ...
+...
+nameError: name 'cbclib' is not defined
+```
+For whatever reason, Python-MIP seems to be incompatible with OR-Tools, and sometimes fails to find the CBC binary if OR-Tools has also been imported.
+Two simple workarounds are
+
+ 1. Comment out all imports of OR-Tools when running COIN-OR examples.
+ 2. Revert to using an older version `python-mip<1.16` (before the CBC binary was decoupled into a separate package).
+
 ## Development
 
 ### Updating versions
@@ -87,3 +100,6 @@ When updating Python version, remember to update:
  4. Dockerfile
  5. devcontainer.json
  6. uv.lock
+
+When updating the Docker image version (e.g. *3*-VARIANT), remember to update:
+ 1. Dockerfile
