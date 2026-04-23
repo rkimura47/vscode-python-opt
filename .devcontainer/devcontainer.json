@@ -7,9 +7,9 @@
 	"build": {
 		"dockerfile": "../docker/Dockerfile",
 		"context": "..",
-		// Update 'VARIANT' to pick a Python version: 3, 3.9, 3.10, 3.11, 3.12
+		// Update 'VARIANT' to pick a Python version: 3, 3.10, 3.11, 3.12, 3.13, 3.14
 		"args": {
-			"VARIANT": "3.11"
+			"VARIANT": "3.13"
 		}
 	},
 
