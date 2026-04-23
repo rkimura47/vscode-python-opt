@@ -1,6 +1,6 @@
 # See here for image contents: https://github.com/devcontainers/images/blob/main/src/python/.devcontainer/Dockerfile
 ARG VARIANT="3.13"
-FROM mcr.microsoft.com/devcontainers/python:1-${VARIANT}
+FROM mcr.microsoft.com/devcontainers/python:3-${VARIANT}
 
 # [Optional] If your pip requirements rarely change, uncomment this section to add them to the image.
 COPY requirements.txt /tmp/pip-tmp/
