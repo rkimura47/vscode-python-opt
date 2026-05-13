@@ -6,7 +6,7 @@ dependencies:
   - python=3.13
   - pip
   - pip:
-    - typer>=0.24.1
+    - typer>=0.25.1
     - cplex>=22.1.2.1
     - docplex>=2.32.264
     - gurobipy>=13.0.2
