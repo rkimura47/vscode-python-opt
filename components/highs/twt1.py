@@ -7,7 +7,7 @@ def run_example():
     jobPairs = [(i, j) for i in jobs for j in jobs if i < j]
     weight = dict(zip(jobs, (4, 5, 3, 5)))
     duration = dict(zip(jobs, (12, 8, 15, 9)))
-    deadline = dict(zip(jobs, (16, 26, 27, 27)))
+    deadline = dict(zip(jobs, (16, 26, 25, 27)))
     M = sum(duration.values())
 
     # Create a new model
