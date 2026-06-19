@@ -10,7 +10,7 @@ If needed, [install uv](https://docs.astral.sh/uv/getting-started/installation/)
 You can [open this repo in a Visual Studio Code Dev Container](https://code.visualstudio.com/docs/devcontainers/containers?originUrl=%2Fdocs%2Fdevcontainers%2Ftutorial#_quick-start-open-an-existing-folder-in-a-container) with all the required packages automatically installed.
 You will need to install Visual Studio Code, and a containerization platform like Docker or Podman (see [Dev Containers tutorial](https://code.visualstudio.com/docs/devcontainers/tutorial)).
 
-Alternatively, you can create a [DevPod Workspace](https://devpod.sh/docs/what-is-devpod) if you want to use other IDEs like [VSCodium](https://vscodium.com/).
+Alternatively, you can create a [DevPod](https://github.com/skevetter/devpod) Workspace if you want to use other IDEs like [VSCodium](https://vscodium.com/).
 
 ### Docker / Docker Compose
 You can open this repo in a container with command-line access using Docker Compose (included in [Docker Desktop](https://docs.docker.com/desktop/)) or Podman Compose ([setup from Podman Desktop](https://podman-desktop.io/docs/compose/setting-up-compose)), by running the following command in the repo's root directory:
