@@ -27,7 +27,7 @@ def run_example(L: int, n: int):
             name=f"UniqueLength[{k}]",
         )
 
-    # Enforce y_ij == x_i AND x_k
+    # Enforce y_ij == x_i AND x_j
     # For this problem we can get away with only enforcing
     # (x_i = 1 AND x_j = 1) -> y_ij = 1
     for (i, j), y_var in y.items():
