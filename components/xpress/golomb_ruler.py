@@ -20,6 +20,8 @@ def add_and_pair_constraints_to_model(
     # Deprecated since Xpress 9.8
     # However `problem.addGenCons()` has a bug where
     # `valstart` and `val` cannot be set to None
+    # Alternatively, populating `valstart` and `val` with
+    # arbitrary positive constants also seems to work
     model.addgencons(
         contype=contype,
         resultant=resultant,
