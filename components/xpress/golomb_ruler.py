@@ -9,26 +9,27 @@ def add_and_pair_constraints_to_model(
     resultant = []
     colstart = []
     colind = []
+    valstart = []
     col_index = 0
     for (i, j), y_var in y.items():
         contype.append(xp.GenConsType.AND)
         resultant.append(y_var)
         colstart.append(col_index)
         colind.extend([x[i], x[j]])
+        valstart.append(1)
         col_index += 2
 
-    # Deprecated since Xpress 9.8
-    # However `problem.addGenCons()` has a bug where
-    # `valstart` and `val` cannot be set to None
-    # Alternatively, populating `valstart` and `val` with
-    # arbitrary positive constants also seems to work
-    model.addgencons(
+    # Contrary to the documentation, `problem.addGenCons()`
+    # does not allow `valstart` and `val` to be set to None
+    # The official workaround is to populate `valstart` with
+    # indices that point outside the array passed to `val`
+    model.addGenCons(
         contype=contype,
         resultant=resultant,
         colstart=colstart,
         colind=colind,
-        valstart=None,
-        val=None,
+        valstart=valstart,
+        val=[],
     )
 
 
