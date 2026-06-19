@@ -1,4 +1,4 @@
-typer>=0.25.1
+typer>=0.26.7
 cplex>=22.2.0.0
 docplex>=2.32.264
 gurobipy>=13.0.2

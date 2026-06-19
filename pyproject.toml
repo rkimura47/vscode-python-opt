@@ -12,7 +12,7 @@ dependencies = [
     "ortools>=9.15.6755",
     "pychoco>=0.2.6,<0.3",  # Issues with setup_input_order_lb_search()
     "pyscipopt>=6.2.1",
-    "typer>=0.25.1",
+    "typer>=0.26.7",
     "xpress>=9.9.0",
 ]
 description = "Simple examples of running discrete optimization solvers in Python"
