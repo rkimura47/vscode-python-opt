@@ -1,13 +1,13 @@
 typer>=0.25.1
-cplex>=22.1.2.1
+cplex>=22.2.0.0
 docplex>=2.32.264
 gurobipy>=13.0.2
 highspy>=1.14.0
 mip>=1.17.6
 cffi>=2.0.0     # Ensures mip builds successfully on Windows
 ortools>=9.15.6755
-pychoco>=0.2.6
-PySCIPOpt>=6.2.0
-xpress>=9.8.1
+pychoco>=0.2.6,<0.3     # Issues with set_input_order_lb_search()
+PySCIPOpt>=6.2.1
+xpress>=9.9.0
 # dev dependencies
 basedpyright>=1.38.3
