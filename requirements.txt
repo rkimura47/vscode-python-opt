@@ -10,4 +10,4 @@ pychoco>=0.2.6,<0.3     # Issues with set_input_order_lb_search()
 PySCIPOpt>=6.2.1
 xpress>=9.9.0
 # dev dependencies
-basedpyright>=1.38.3
+basedpyright>=1.39.8
