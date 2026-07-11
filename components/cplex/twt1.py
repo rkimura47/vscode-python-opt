@@ -19,9 +19,9 @@ def run_example():
     # TWT Problem Data
     jobs = tuple(i + 1 for i in range(4))
     jobPairs = [(i, j) for i in jobs for j in jobs if i < j]
-    weight = dict(zip(jobs, (4, 5, 3, 5)))
-    duration = dict(zip(jobs, (12, 8, 15, 9)))
-    deadline = dict(zip(jobs, (16, 26, 25, 27)))
+    weight = dict(zip(jobs, (4, 5, 3, 5), strict=True))
+    duration = dict(zip(jobs, (12, 8, 15, 9), strict=True))
+    deadline = dict(zip(jobs, (16, 26, 25, 27), strict=True))
     M = sum(duration.values())
 
     # Create a new model
