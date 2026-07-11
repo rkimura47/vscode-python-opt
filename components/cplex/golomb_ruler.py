@@ -19,7 +19,8 @@ def run_example(L: int, n: int):
         # Among all possible pairs of marks measuring length k, there can be at most 1.
         m.add_constraints(
             (
-                m.sum_vars_all_different(y[i, i + k] for i in range(L - k + 1)) <= 1
+                m.sum_vars_all_different(y[i, i + k] for i in range(L - k + 1))
+                <= 1
                 for k in range(1, L)
             ),
             "UniqueLength",
@@ -35,7 +36,9 @@ def run_example(L: int, n: int):
             m.add_constraint(x[i] + x[j] - 1 <= y_var)
 
         # Either require at least n marks, or try to maximize the number of marks.
-        m.add_constraint(m.sum_vars_all_different(x.values()) >= n, "RequireNMarks")
+        m.add_constraint(
+            m.sum_vars_all_different(x.values()) >= n, "RequireNMarks"
+        )
         # m.maximize(m.sum_vars_all_different(x.values()))
 
         solve_solution = m.solve()
@@ -43,5 +46,7 @@ def run_example(L: int, n: int):
         if solve_solution:
             print("## Golomb Ruler Problem ##")
             print(f"L = {L}, n = {n}")
-            used_marks = [idx for idx, var in x.items() if var in solve_solution]
+            used_marks = [
+                idx for idx, var in x.items() if var in solve_solution
+            ]
             print(f"used_marks = {used_marks}")

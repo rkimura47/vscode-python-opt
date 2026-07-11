@@ -39,7 +39,10 @@ def run_example(L: int, n: int):
 
     status = model.optimize()
 
-    if status in (mip.OptimizationStatus.OPTIMAL, mip.OptimizationStatus.FEASIBLE):
+    if status in (
+        mip.OptimizationStatus.OPTIMAL,
+        mip.OptimizationStatus.FEASIBLE,
+    ):
         print("## Golomb Ruler Problem ##")
         print(f"L = {L}, n = {n}")
         used_marks = [idx for idx, var in x.items() if var.x > 0]

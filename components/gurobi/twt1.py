@@ -23,7 +23,9 @@ def run_example():
         tardiness = m.addVars(jobs, name="tardiness")
 
         # Set objective function
-        m.setObjective(quicksum(weight[j] * tardiness[j] for j in jobs), GRB.MINIMIZE)
+        m.setObjective(
+            quicksum(weight[j] * tardiness[j] for j in jobs), GRB.MINIMIZE
+        )
 
         # Add constraints
         m.addConstrs(
@@ -41,7 +43,10 @@ def run_example():
             "NoOverlap2",
         )
         m.addConstrs(
-            (tardiness[j] >= startTime[j] + duration[j] - deadline[j] for j in jobs),
+            (
+                tardiness[j] >= startTime[j] + duration[j] - deadline[j]
+                for j in jobs
+            ),
             "Deadline",
         )
 

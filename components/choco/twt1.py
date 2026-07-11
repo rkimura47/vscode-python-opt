@@ -1,5 +1,6 @@
 from pychoco import Model
 
+
 def run_example():
     # TWT Problem Data
     jobs = tuple(i + 1 for i in range(4))
@@ -13,10 +14,16 @@ def run_example():
     model = Model("TWTexample")
 
     # Create variables
-    startTime = {j: model.intvar(0, MAX_END_TIME, name=f"startTime[{j}]") for j in jobs}
-    tardiness = {j: model.intvar(0, MAX_END_TIME, name=f"tardiness[{j}]") for j in jobs}
+    startTime = {
+        j: model.intvar(0, MAX_END_TIME, name=f"startTime[{j}]") for j in jobs
+    }
+    tardiness = {
+        j: model.intvar(0, MAX_END_TIME, name=f"tardiness[{j}]") for j in jobs
+    }
     # Auxiliary variables
-    endTime = {j: model.intvar(0, MAX_END_TIME, name=f"endTime[{j}]") for j in jobs}
+    endTime = {
+        j: model.intvar(0, MAX_END_TIME, name=f"endTime[{j}]") for j in jobs
+    }
     tasks = [model.task(startTime[j], duration[j], endTime[j]) for j in jobs]
     heights = [model.intvar(1) for _ in jobs]
     capacity = model.intvar(1)
@@ -28,13 +35,14 @@ def run_example():
 
     # Add objective function
     obj_twt = model.intvar(0, UB_TWT, name="obj_twt")
-    model.scalar([tardiness[j] for j in jobs], [weight[j] for j in jobs], "<=", obj_twt).post()
+    model.scalar(
+        [tardiness[j] for j in jobs], [weight[j] for j in jobs], "<=", obj_twt
+    ).post()
 
     # Solve model
     solver = model.get_solver()
     solver.show_short_statistics()
     solution = solver.find_optimal_solution(objective=obj_twt, maximize=False)
-
 
     # Display solution
     if solution:

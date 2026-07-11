@@ -9,15 +9,12 @@ def run_example(L: int, n: int):
     # x_i = location of the i-th mark
     x = model.intvars(n, 0, L, name="x")
     # y_ij = distance between the i-th mark and j-th mark (x_i and x_j)
-    y = {
-        pair: model.intvar(0, L, name=f"y[{pair}]")
-        for pair in mark_pairs
-    }
+    y = {pair: model.intvar(0, L, name=f"y[{pair}]") for pair in mark_pairs}
 
     # Enforce y_ij == x[j] - x[i].
     for pair in mark_pairs:
         # Using distance() instead of arithm() here actually helps a lot!
-        model.distance(x[pair[0]], x[pair[1]], "=",y[pair]).post()
+        model.distance(x[pair[0]], x[pair[1]], "=", y[pair]).post()
 
     # Order marks from smallest to largest.
     model.arithm(x[0], "=", 0).post()

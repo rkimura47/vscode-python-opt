@@ -2,6 +2,7 @@ import enum
 
 from components.choco import golomb_ruler, simple, twt1
 
+
 class ChocoExample(str, enum.Enum):
     golomb9 = "golomb9"
     golomb10 = "golomb10"

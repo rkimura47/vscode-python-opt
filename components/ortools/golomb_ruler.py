@@ -34,7 +34,9 @@ def run_example(L: int, n: int):
         model.add_linear_constraint(x[i] + x[j] - 1 <= y_var)
 
     # Either require at least n marks, or try to maximize the number of marks.
-    model.add_linear_constraint(mathopt.fast_sum(x.values()) >= n, name="RequireNMarks")
+    model.add_linear_constraint(
+        mathopt.fast_sum(x.values()) >= n, name="RequireNMarks"
+    )
     # model.maximize(mathopt.fast_sum(x.values()))
 
     # We can use either CP-SAT or SCIP; unsurprisingly, CP-SAT is generally faster for this problem.

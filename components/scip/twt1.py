@@ -15,12 +15,16 @@ def run_example():
 
     # Create variables
     # x[(i,j)] = 1 if i << j, else j >> i
-    x = {(i, j): model.addVar(vtype="B", name=f"x[{i},{j}]") for i, j in jobPairs}
+    x = {
+        (i, j): model.addVar(vtype="B", name=f"x[{i},{j}]") for i, j in jobPairs
+    }
     startTime = {j: model.addVar(name=f"startTime[{j}]") for j in jobs}
     tardiness = {j: model.addVar(name=f"tardiness[{j}]") for j in jobs}
 
     # Set objective function
-    model.setObjective(quicksum([weight[j] * tardiness[j] for j in jobs]), "minimize")
+    model.setObjective(
+        quicksum([weight[j] * tardiness[j] for j in jobs]), "minimize"
+    )
 
     # Add constraints
     model.addConss(
@@ -31,11 +35,17 @@ def run_example():
         "NoOverlap1",
     )
     model.addConss(
-        (startTime[i] >= startTime[j] + duration[j] - M * x[i, j] for i, j in jobPairs),
+        (
+            startTime[i] >= startTime[j] + duration[j] - M * x[i, j]
+            for i, j in jobPairs
+        ),
         "NoOverlap2",
     )
     model.addConss(
-        (tardiness[j] >= startTime[j] + duration[j] - deadline[j] for j in jobs),
+        (
+            tardiness[j] >= startTime[j] + duration[j] - deadline[j]
+            for j in jobs
+        ),
         "Deadline",
     )
 

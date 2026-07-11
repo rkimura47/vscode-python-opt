@@ -23,7 +23,9 @@ def run_example():
     tardiness = m.addVariables(jobs, name="tardiness")
 
     # Set objective function
-    m.setObjective(xp.Sum(weight[j] * tardiness[j] for j in jobs), sense=xp.minimize)
+    m.setObjective(
+        xp.Sum(weight[j] * tardiness[j] for j in jobs), sense=xp.minimize
+    )
 
     # Add constraints
     m.addConstraint(

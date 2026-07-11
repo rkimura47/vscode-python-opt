@@ -1,5 +1,6 @@
 from pychoco import Model
 
+
 def run_example() -> None:
     # Initialize model object
     model = Model()

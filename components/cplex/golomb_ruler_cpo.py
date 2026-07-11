@@ -19,10 +19,7 @@ def run_example(L: int, n: int):
         # x_i = location of the i-th mark
         x = mdl.integer_var_list(n, 0, L, name="x")
         # y_ij = distance between the i-th mark and j-th mark (x_i and x_j)
-        y = {
-            pair: x[pair[1]] - x[pair[0]]
-            for pair in mark_pairs
-        }
+        y = {pair: x[pair[1]] - x[pair[0]] for pair in mark_pairs}
 
         # Order marks from smallest to largest.
         mdl.add(x[0] == 0)

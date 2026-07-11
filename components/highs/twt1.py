@@ -23,17 +23,17 @@ def run_example():
     for i, j in jobPairs:
         model.addConstr(
             startTime[j] >= startTime[i] + duration[i] - M * (1 - x[i, j]),
-            name=f"NoOverlap1[{i},{j}]"
+            name=f"NoOverlap1[{i},{j}]",
         )
         model.addConstr(
             startTime[i] >= startTime[j] + duration[j] - M * x[i, j],
-            name=f"NoOverlap2[{i},{j}]"
+            name=f"NoOverlap2[{i},{j}]",
         )
 
     for j in jobs:
         model.addConstr(
             tardiness[j] >= startTime[j] + duration[j] - deadline[j],
-            name=f"Deadline[{j}]"
+            name=f"Deadline[{j}]",
         )
 
     # AFAIK the only methods that allow setting the objective function

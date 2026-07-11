@@ -56,7 +56,8 @@ def gurobi(
 @app.command(no_args_is_help=True)
 def highs(
     highs_example: Annotated[
-        HighsExample, typer.Argument(help="The HiGHS example to run")]
+        HighsExample, typer.Argument(help="The HiGHS example to run")
+    ],
 ) -> None:
     """Run HiGHS example EXAMPLE."""
     highs_example.run()

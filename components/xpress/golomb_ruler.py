@@ -73,7 +73,10 @@ def run_example(L: int, n: int):
 
         model.mipOptimize()
 
-        if model.attributes.mipstatus in (MIPStatus.OPTIMAL, MIPStatus.SOLUTION):
+        if model.attributes.mipstatus in (
+            MIPStatus.OPTIMAL,
+            MIPStatus.SOLUTION,
+        ):
             print("## Golomb Ruler Problem ##")
             print(f"L = {L}, n = {n}")
             sol = model.getSolution(x)

@@ -23,7 +23,9 @@ def run_example():
     tardiness = {j: model.add_var(name=f"tardiness[{j}]") for j in jobs}
 
     # Set objective function
-    model.objective = mip.minimize(mip.xsum(weight[j] * tardiness[j] for j in jobs))
+    model.objective = mip.minimize(
+        mip.xsum(weight[j] * tardiness[j] for j in jobs)
+    )
 
     # Add constraints
     for i, j in jobPairs:

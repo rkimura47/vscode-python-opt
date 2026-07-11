@@ -17,10 +17,17 @@ def run_example():
 
     # Create variables
     # x[(i,j)] = 1 if i << j, else j >> i
-    x = {(i, j): model.add_binary_variable(name=f"x[{i},{j}]") for i, j in jobPairs}
+    x = {
+        (i, j): model.add_binary_variable(name=f"x[{i},{j}]")
+        for i, j in jobPairs
+    }
     # Note: continuous variables in mathopt are NOT non-negative by default!
-    startTime = {j: model.add_variable(lb=0.0, name=f"startTime[{j}]") for j in jobs}
-    tardiness = {j: model.add_variable(lb=0.0, name=f"tardiness[{j}]") for j in jobs}
+    startTime = {
+        j: model.add_variable(lb=0.0, name=f"startTime[{j}]") for j in jobs
+    }
+    tardiness = {
+        j: model.add_variable(lb=0.0, name=f"tardiness[{j}]") for j in jobs
+    }
 
     # Set objective function
     model.minimize(mathopt.fast_sum(weight[j] * tardiness[j] for j in jobs))
