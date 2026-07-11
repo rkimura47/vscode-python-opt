@@ -24,8 +24,13 @@ license-files = ["LICEN[CS]E.*"]
 dev = [
     "basedpyright>=1.39.8",
     "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
 ]
 
 [tool.pytest]
-addopts = ["-v"]
+addopts = ["-v", "--cov=components", "--cov-report=term-missing"]
 testpaths = ["*/tests/*"]
+pythonpath = ["."]
+
+[tool.coverage.run]
+omit = ["*/tests/*", "*/example.py"]

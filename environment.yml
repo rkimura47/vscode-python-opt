@@ -20,3 +20,4 @@ dependencies:
     # dev dependencies
     - basedpyright>=1.39.8
     - pytest>=9.1.1
+    - pytest-cov>=7.1.0
