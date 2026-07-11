@@ -23,5 +23,6 @@ def run_example():
     # Print solutions
     print(f"Optimal objective value: {model.getObjVal()}")
     print(
-        f"Solution values: x={model.getVal(x)}, y={model.getVal(y)}, z={model.getVal(z)}"
+        f"Solution values: x={model.getVal(x)}, y={model.getVal(y)}, "
+        + f"z={model.getVal(z)}"
     )

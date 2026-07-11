@@ -20,7 +20,8 @@ def run_example(L: int, n: int):
         for pair in mark_pairs
     }
 
-    # Among all possible pairs of marks measuring length k, there can be at most 1.
+    # Among all possible pairs of marks measuring length k,
+    # there can be at most 1.
     for k in range(1, L):
         model.add_linear_constraint(
             mathopt.fast_sum(y[i, i + k] for i in range(L - k + 1)) <= 1,
@@ -39,7 +40,8 @@ def run_example(L: int, n: int):
     )
     # model.maximize(mathopt.fast_sum(x.values()))
 
-    # We can use either CP-SAT or SCIP; unsurprisingly, CP-SAT is generally faster for this problem.
+    # We can use either CP-SAT or SCIP;
+    # unsurprisingly, CP-SAT is generally faster for this problem.
     params = mathopt.SolveParameters(enable_output=True)
     result = mathopt.solve(model, mathopt.SolverType.CP_SAT, params=params)
     # result = mathopt.solve(model, mathopt.SolverType.GSCIP, params=params)

@@ -20,7 +20,8 @@ def run_example(L: int, n: int):
         for pair in mark_pairs
     }
 
-    # Among all possible pairs of marks measuring length k, there can be at most 1.
+    # Among all possible pairs of marks measuring length k,
+    # there can be at most 1.
     for k in range(1, L):
         model.add_constr(
             mip.xsum(y[i, i + k] for i in range(L - k + 1)) <= 1,

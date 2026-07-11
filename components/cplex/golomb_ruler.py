@@ -16,7 +16,8 @@ def run_example(L: int, n: int):
         # y_ij = 1 iff x_i = 1 AND x_k = 1
         y = m.binary_var_dict(mark_pairs, name="y")
 
-        # Among all possible pairs of marks measuring length k, there can be at most 1.
+        # Among all possible pairs of marks measuring length k,
+        # there can be at most 1.
         m.add_constraints(
             (
                 m.sum_vars_all_different(y[i, i + k] for i in range(L - k + 1))
@@ -30,12 +31,16 @@ def run_example(L: int, n: int):
         # For this problem we can get away with only enforcing
         # (x_i = 1 AND x_j = 1) -> y_ij = 1
         # but it solves much faster when we fully enforce AND
-        # Note: the inequality version seems to play better with model size limits.
+        # Note: the inequality version seems to play better with
+        # model size limits.
         for (i, j), y_var in y.items():
-            # m.add_constraint(y_var == m.logical_and(x[i], x[j]), f"AndPair[{i},{j}]")
+            # m.add_constraint(
+            #     y_var == m.logical_and(x[i], x[j]), f"AndPair[{i},{j}]"
+            # )
             m.add_constraint(x[i] + x[j] - 1 <= y_var)
 
-        # Either require at least n marks, or try to maximize the number of marks.
+        # Either require at least n marks,
+        # or try to maximize the number of marks.
         m.add_constraint(
             m.sum_vars_all_different(x.values()) >= n, "RequireNMarks"
         )

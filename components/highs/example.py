@@ -18,8 +18,9 @@ class HighsExample(enum.StrEnum):
                 golomb_ruler.run_example(L=34, n=8)
             case HighsExample.golomb9:
                 response = input(
-                    "Warning: This example usually takes 2.5 - 3 minutes to solve, "
-                    "during which HiGHS cannot be interrupted. Enter y to continue: "
+                    "Warning: This example usually takes 2.5 - 3 minutes"
+                    + " to solve, during which HiGHS cannot be interrupted."
+                    + " Enter y to continue: "
                 )
                 if response == "y":
                     golomb_ruler.run_example(L=44, n=9)

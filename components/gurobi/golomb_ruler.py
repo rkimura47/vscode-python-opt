@@ -16,7 +16,8 @@ def run_example(L: int, n: int):
         # y_ij = 1 iff x_i = 1 AND x_k = 1
         y = model.addVars(mark_pairs, vtype=grb.GRB.BINARY, name="y")
 
-        # Among all possible pairs of marks measuring length k, there can be at most 1.
+        # Among all possible pairs of marks measuring length k,
+        # there can be at most 1.
         model.addConstrs(
             (
                 grb.quicksum(y[i, i + k] for i in range(L - k + 1)) <= 1
@@ -33,7 +34,8 @@ def run_example(L: int, n: int):
             model.addConstr(y_var == grb.and_(x[i], x[j]), f"AndPair[{i},{j}]")
             # model.addConstr(x[i] + x[j] - 1 <= y_var)
 
-        # Either require at least n marks, or try to maximize the number of marks.
+        # Either require at least n marks,
+        # or try to maximize the number of marks.
         model.addConstr(x.sum() >= n, "RequireNMarks")
         # model.setObjective(x.sum(), grb.GRB.MAXIMIZE)
 

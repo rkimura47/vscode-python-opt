@@ -21,5 +21,6 @@ def run_example():
         # Print solutions
         print(f"Optimal objective value: {model.objective_value}")
         print(
-            f"Solution values: x={x.solution_value}, y={y.solution_value}, z={z.solution_value}"
+            f"Solution values: x={x.solution_value}, y={y.solution_value}, "
+            + f"z={z.solution_value}"
         )

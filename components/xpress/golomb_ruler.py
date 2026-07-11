@@ -48,7 +48,8 @@ def run_example(L: int, n: int):
         # y_ij = 1 iff x_i = 1 AND x_k = 1
         y = model.addVariables(mark_pairs, vartype=xp.binary, name="y")
 
-        # Among all possible pairs of marks measuring length k, there can be at most 1.
+        # Among all possible pairs of marks measuring length k,
+        # there can be at most 1.
         model.addConstraint(
             xp.constraint(
                 xp.Sum(y[i, i + k] for i in range(L - k + 1)) <= 1,
@@ -60,12 +61,17 @@ def run_example(L: int, n: int):
         # Enforce y_ij == x_i AND x_j
         # For this problem we can get away with only enforcing
         # (x_i = 1 AND x_j = 1) -> y_ij = 1
-        # but it solves much faster (and works better with model limits) when we fully enforce AND
+        # but it solves much faster (and works better with model limits)
+        # when we fully enforce AND
         add_and_pair_constraints_to_model(model, x, y)
-        # model.addConstraint(x[i] + x[j] - 1 <= y_var for (i, j), y_var in y.items())
+        # model.addConstraint(
+        #     x[i] + x[j] - 1 <= y_var for (i, j), y_var in y.items()
+        # )
 
-        # Either require at least n marks, or try to maximize the number of marks.
-        # It's a little annoying that xp.Sum() doesn't recognize view objects as iterators.
+        # Either require at least n marks,
+        # or try to maximize the number of marks.
+        # It's a little annoying that xp.Sum() doesn't recognize
+        # view objects as iterators.
         model.addConstraint(
             xp.constraint(xp.Sum(iter(x.values())) >= n, name="RequireNMarks")
         )

@@ -28,5 +28,6 @@ def run_example() -> None:
     # Print solutions
     print(f"Optimal objective value: {sol.get_int_val(obj)}")
     print(
-        f"Solution values: x={sol.get_int_val(x)}, y={sol.get_int_val(y)}, z={sol.get_int_val(z)}"
+        f"Solution values: x={sol.get_int_val(x)}, y={sol.get_int_val(y)}, "
+        + f"z={sol.get_int_val(z)}"
     )

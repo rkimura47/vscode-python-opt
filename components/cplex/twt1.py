@@ -1,7 +1,8 @@
 import cplex._internal._constants as CPLEX_CONSTANTS
 from docplex.mp.model import Model
 
-# See "Solution Status Codes by Number in the CPLEX Callable Library (C API)" in the CPLEX documentation
+# See "Solution Status Codes by Number in the CPLEX Callable Library (C API)"
+# in the CPLEX documentation
 # https://www.ibm.com/docs/en/icos/22.1.1?topic=micclcarm-solution-status-codes-by-number-in-cplex-callable-library-c-api
 StatusDict = {
     getattr(CPLEX_CONSTANTS, c): c
