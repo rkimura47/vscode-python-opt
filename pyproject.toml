@@ -23,4 +23,5 @@ license-files = ["LICEN[CS]E.*"]
 [dependency-groups]
 dev = [
     "basedpyright>=1.39.8",
+    "pytest>=9.1.1",
 ]

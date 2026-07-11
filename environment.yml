@@ -19,3 +19,4 @@ dependencies:
     - xpress>=9.9.0
     # dev dependencies
     - basedpyright>=1.39.8
+    - pytest>=9.1.1
