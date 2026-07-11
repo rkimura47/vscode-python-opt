@@ -83,6 +83,15 @@ Two simple workarounds are
  1. Comment out all imports of OR-Tools when running COIN-OR examples.
  2. Revert to using an older version `python-mip<1.16` (before the CBC binary was decoupled into a separate package).
 
+### OR-Tools is incompatible with HiGHS - _2026-07-11_
+```
+ImportError: libortools.so.9: undefined symbol: _Z19setLocalOptionValueRK15HighsLogOptionsRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS_RSt6vectorIP12OptionRecordSaISD_EES7_
+```
+OR-Tools currently has an incompatibility issue with HiGHS on certain platforms - see https://github.com/google/or-tools/issues/5246 for the relevant discussion.
+
+A simple workaround is to comment out all imports of OR-Tools or HiGHS depending on the example being run.
+
+
 ## Development
 
 ### Updating versions
