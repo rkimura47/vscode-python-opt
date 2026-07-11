@@ -73,11 +73,11 @@ def run_example():
     # Display solution
     if result.termination.reason == mathopt.TerminationReason.OPTIMAL:
         for var, val in result.variable_values().items():
-            print("%s:\t%g" % (var.name, val))
-        print("Objective:\t%g" % result.objective_value())
+            print(f"{var.name}:\t{val:g}")
+        print(f"Objective:\t{result.objective_value():g}")
     else:
         term = result.termination
         print(
-            "Optimization was stopped with status %s: %s"
-            % (term.reason.name, term.detail)
+            "Optimization was stopped with status "
+            + f"{term.reason.name}: {term.detail}"
         )

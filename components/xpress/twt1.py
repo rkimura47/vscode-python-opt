@@ -57,11 +57,11 @@ def run_example():
     if m.attributes.mipstatus == MIPStatus.OPTIMAL:
         solution = m.getSolution({v: v for v in m.getVariable()})
         for var, val in solution.items():
-            print("%s:\t%g" % (var.name, val))
-        print("Objective:\t%g" % m.attributes.objval)
+            print(f"{var.name}:\t{val:g}")
+        print(f"Objective:\t{m.attributes.objval:g}")
     else:
         mipstatus = m.attributes.mipstatus
         print(
-            "Optimization was stopped with status: %s (MIPSTATUS=%d)"
-            % (MipStatusDict[mipstatus], mipstatus)
+            "Optimization was stopped with status: "
+            + f"{MipStatusDict[mipstatus]} (MIPSTATUS={mipstatus})"
         )

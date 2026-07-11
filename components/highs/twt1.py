@@ -50,7 +50,7 @@ def run_example():
         info = model.getInfo()
         sol = model.getSolution().col_value
         for var in model.getVariables():
-            print("%s:\t%g" % (var.name, sol[var.index]))
-        print("Objective:\t%g" % info.objective_function_value)
+            print(f"{var.name}:\t{sol[var.index]:g}")
+        print(f"Objective:\t{info.objective_function_value:g}")
     else:
-        print("Optimization was stopped with status %s" % model_status)
+        print(f"Optimization was stopped with status {model_status}")

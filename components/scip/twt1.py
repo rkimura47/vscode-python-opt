@@ -61,7 +61,7 @@ def run_example():
     status = model.getStatus()
     if status == "optimal":
         for v in model.getVars():
-            print("%s:\t%g" % (v.name, model.getVal(v)))
-        print("Objective:\t%g" % model.getObjVal())
+            print(f"{v.name}:\t{model.getVal(v):g}")
+        print(f"Objective:\t{model.getObjVal():g}")
     else:
-        print("Optimization was stopped with status %s" % status)
+        print(f"Optimization was stopped with status {status}")

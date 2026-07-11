@@ -50,10 +50,10 @@ def run_example():
     # Display solution
     if status == mip.OptimizationStatus.OPTIMAL:
         for var in model.vars:
-            print("%s:\t%g" % (var.name, var.x))
-        print("Objective:\t%g" % model.objective_value)
+            print(f"{var.name}:\t{var.x:g}")
+        print(f"Objective:\t{model.objective_value:g}")
     else:
         print(
-            "Optimization was stopped with status %s (code %d)"
-            % (status.name, status.value)
+            "Optimization was stopped with status "
+            + f"{status.name} (code {status.value})"
         )

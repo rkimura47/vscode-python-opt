@@ -47,11 +47,11 @@ def run_example():
     # Display solution
     if solution:
         for var in startTime.values():
-            print("%s:\t%g" % (var.name, solution.get_int_val(var)))
+            print(f"{var.name}:\t{solution.get_int_val(var):g}")
         for var in tardiness.values():
-            print("%s:\t%g" % (var.name, solution.get_int_val(var)))
+            print(f"{var.name}:\t{solution.get_int_val(var):g}")
 
-        print("Objective:\t%g" % solution.get_int_val(obj_twt))
+        print(f"Objective:\t{solution.get_int_val(obj_twt):g}")
     else:
         status = solver.get_search_state()
         is_optimal = solver.is_objective_optimal() == 1

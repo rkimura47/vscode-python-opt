@@ -39,21 +39,21 @@ def run_example():
         m.add_constraints(
             (
                 startTime[j] >= startTime[i] + duration[i] - M * (1 - x[i, j]),
-                "NoOverlap1_%d_%d" % (i, j),
+                f"NoOverlap1_{i}_{j}",
             )
             for i, j in jobPairs
         )
         m.add_constraints(
             (
                 startTime[i] >= startTime[j] + duration[j] - M * x[i, j],
-                "NoOverlap2_%d_%d" % (i, j),
+                f"NoOverlap2_{i}_{j}",
             )
             for i, j in jobPairs
         )
         m.add_constraints(
             (
                 tardiness[j] >= startTime[j] + duration[j] - deadline[j],
-                "Deadline_%d" % j,
+                f"Deadline_{j}",
             )
             for j in jobs
         )
@@ -69,11 +69,11 @@ def run_example():
         # Display solution
         if solve_solution:
             for v in m.iter_variables():
-                print("%s:\t%g" % (v.name, v.solution_value))
-            print("Objective:\t%g" % m.objective_value)
+                print(f"{v.name}:\t{v.solution_value:g}")
+            print(f"Objective:\t{m.objective_value:g}")
         else:
             sdetails = m.solve_details
             print(
-                "Optimization was stopped with status: %s (code %d)"
-                % (sdetails.status, sdetails.status_code)
+                "Optimization was stopped with status: "
+                + f"{sdetails.status} (code {sdetails.status_code})"
             )

@@ -60,11 +60,11 @@ def run_example():
         # Display solution
         if m.status == GRB.Status.OPTIMAL:
             for v in m.getVars():
-                print("%s:\t%g" % (v.varName, v.x))
-            print("Objective:\t%g" % m.objVal)
+                print(f"{v.varName}:\t{v.x:g}")
+            print(f"Objective:\t{m.objVal:g}")
         else:
             statstr = StatusDict[m.status]
-            print("Optimization was stopped with status %s" % statstr)
+            print(f"Optimization was stopped with status {statstr}")
 
     except GurobiError as e:
         print("Error code " + str(e.errno) + ": " + str(e))
