@@ -3,7 +3,7 @@ import enum
 from components.ortools import golomb_ruler, golomb_ruler_cpsat, simple, twt1
 
 
-class ORToolsExample(str, enum.Enum):
+class ORToolsExample(enum.StrEnum):
     golomb7 = "golomb7"
     golomb8 = "golomb8"
     golomb9 = "golomb9"

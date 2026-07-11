@@ -3,7 +3,7 @@ import enum
 from components.gurobi import golomb_ruler, simple, twt1
 
 
-class GurobiExample(str, enum.Enum):
+class GurobiExample(enum.StrEnum):
     golomb7 = "golomb7"
     golomb8 = "golomb8"
     golomb9 = "golomb9"

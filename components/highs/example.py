@@ -3,7 +3,7 @@ import enum
 from components.highs import golomb_ruler, simple, twt1
 
 
-class HighsExample(str, enum.Enum):
+class HighsExample(enum.StrEnum):
     golomb7 = "golomb7"
     golomb8 = "golomb8"
     golomb9 = "golomb9"

@@ -3,7 +3,7 @@ import enum
 from components.scip import golomb_ruler, simple, twt1
 
 
-class ScipExample(str, enum.Enum):
+class ScipExample(enum.StrEnum):
     golomb7 = "golomb7"
     golomb8 = "golomb8"
     golomb9 = "golomb9"

@@ -3,7 +3,7 @@ import enum
 from components.cplex import golomb_ruler, golomb_ruler_cpo, simple, twt1
 
 
-class CplexExample(str, enum.Enum):
+class CplexExample(enum.StrEnum):
     golomb6 = "golomb6"
     golomb7 = "golomb7"
     golomb8 = "golomb8"
