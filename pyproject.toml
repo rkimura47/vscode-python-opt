@@ -30,11 +30,11 @@ dev = [
 
 [tool.pytest]
 addopts = ["-v", "--cov=components", "--cov-report=term-missing"]
-testpaths = ["*/tests/*"]
+testpaths = ["components/*/tests/*"]
 pythonpath = ["."]
 
 [tool.coverage.run]
-omit = ["*/tests/*", "*/example.py"]
+omit = ["components/*/tests/*", "components/*/example.py"]
 
 [tool.ruff]
 target-version = "py313"
